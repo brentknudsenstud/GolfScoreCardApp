@@ -1,0 +1,25 @@
+html, body {
+    margin: 10px;
+    padding: 10px;
+    background: url("images/sand-hollow-course.jpeg") no-repeat center center fixed;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+
+table {
+    background-color: white;
+    opacity: 0.7;
+}
+
+h1 {
+    text-align: center;
+    background: white;
+    opacity: 0.9;
+    padding: 10px 0;
+    color: #577377;
+}
+label {
+    color: #a5c442;
+    background-color: white;
+    opacity: 0.9;
+    padding: 10px 5px;
+}
