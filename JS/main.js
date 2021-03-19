@@ -11,3 +11,18 @@ teeBoxes.forEach(function (teeBox, index) {
    } yards</option>`
 });
 document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
+
+
+function playerMessage() {
+toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+
+toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
+}
+
+function getAvailableCourses() {
+  return fetch('https://golf-courses-api.herokuapp.com/courses/').then(
+    function (response) {
+      return response.json();
+    }
+  );
+ }
