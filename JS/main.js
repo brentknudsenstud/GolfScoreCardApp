@@ -1,10 +1,14 @@
+function getNextId(prefix) {
+  return prefix + Math.random().toString(36).substr(2, 10);
+}
+
 let courseOptionsHtml = '';
 courses.forEach((course) => {
  courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
 });
 document.getElementById('course-select').innerHTML = courseOptionsHtml;
 
-let teeBoxSelectHtml = ''
+let teeBoxSelectHtml = '';
 teeBoxes.forEach(function (teeBox, index) {
    teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}, ${
      teeBox.totalYards
