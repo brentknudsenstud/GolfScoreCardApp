@@ -1,8 +1,11 @@
+create function to randomize ids for players and courses
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
 }
 
 getAvailableCourses();
+
+//create function to choose from available courses
 function chooseCourse(courses) {
 let courseOptionsHtml = '';
 courses.forEach((course) => {
@@ -11,7 +14,7 @@ courses.forEach((course) => {
 document.getElementById('course-select').innerHTML = courseOptionsHtml;
 }
 
-
+// create function to choose tee box
 function chooseTee(teeBoxes) {
 let teeBoxSelectHtml = '';
 teeBoxes.forEach(function (teeBox, index) {
@@ -22,6 +25,7 @@ teeBoxes.forEach(function (teeBox, index) {
 document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
 }
 
+// create function to create message after last hole is played
 function playerMessage() {
 toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
 
@@ -34,4 +38,19 @@ function getAvailableCourses() {
       chooseCourse(response.json().courses);
     }
   );
+ }
+
+ // create function to update Score
+ function updateScore() {
+
+ }
+
+ // create function to allow up to four players
+ function addUpToFourPlayers(){
+
+ }
+
+ // create function to enter players names?
+ function enterPlayersNames() {
+
  }
