@@ -1,4 +1,4 @@
-create function to randomize ids for players and courses
+// create function to randomize ids for players and courses
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
 }
@@ -52,5 +52,12 @@ function getAvailableCourses() {
 
  // create function to enter players names?
  function enterPlayersNames() {
+
+ }
+
+ // Be aware that when a player gets to the last score before totaling, they could have started at any hole.
+ // create function that totals last score before totaling regardless of what hole they started on. Be aware that when a player gets to the last score before totaling, they could have started at any hole.
+
+ function holeTotal() {
 
  }
