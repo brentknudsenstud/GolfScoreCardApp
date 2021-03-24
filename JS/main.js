@@ -2,12 +2,17 @@ function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
 }
 
+getAvailableCourses();
+function chooseCourse(courses) {
 let courseOptionsHtml = '';
 courses.forEach((course) => {
  courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
 });
 document.getElementById('course-select').innerHTML = courseOptionsHtml;
+}
 
+
+function chooseTee(teeBoxes) {
 let teeBoxSelectHtml = '';
 teeBoxes.forEach(function (teeBox, index) {
    teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}, ${
@@ -15,7 +20,7 @@ teeBoxes.forEach(function (teeBox, index) {
    } yards</option>`
 });
 document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
-
+}
 
 function playerMessage() {
 toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
@@ -24,9 +29,9 @@ toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice faci
 }
 
 function getAvailableCourses() {
-  return fetch('https://golf-courses-api.herokuapp.com/courses/').then(
-    function (response) {
-      return response.json();
+  return fetch('https://golf-courses-api.herokuapp.com/courses/')
+  .then(function (response) {
+      chooseCourse(response.json().courses);
     }
   );
  }
