@@ -9,7 +9,6 @@ getAvailableCourses();
 function chooseCourse(courses) {
   let courseOptionsHtml = '';
   courses.courses.forEach((course) => {
-    console.log('fish')
     courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
   });
   document.getElementById('course-select').innerHTML = courseOptionsHtml;
@@ -36,7 +35,6 @@ function getAvailableCourses() {
   fetch('https://golf-courses-api.herokuapp.com/courses/')
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       chooseCourse(data);
     }
     );
