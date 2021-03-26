@@ -8,7 +8,8 @@ getAvailableCourses();
 //create function to choose from available courses
 function chooseCourse(courses) {
 let courseOptionsHtml = '';
-courses.forEach((course) => {
+courses.courses.forEach((course) => {
+console.log('fish');
  courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
 });
 document.getElementById('course-select').innerHTML = courseOptionsHtml;
@@ -28,19 +29,20 @@ document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
 // create function to create message after last hole is played
 function playerMessage() {
 toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
-
 toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
 }
 
 function getAvailableCourses() {
-  return fetch('https://golf-courses-api.herokuapp.com/courses/')
-  .then(function (response) {
-      chooseCourse(response.json().courses);
-    }
+  fetch('https://golf-courses-api.herokuapp.com/courses/')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    chooseCourse(data);
+  }
   );
- }
+}
 
- // create function to update Score
+// create function to update Score
  function updateScore() {
 
  }
