@@ -4,6 +4,7 @@ function getNextId(prefix) {
 }
 
 getAvailableCourses();
+getAvailableTees();
 
 //create function to choose from available courses
 function chooseCourse(courses) {
@@ -42,8 +43,8 @@ function getAvailableCourses() {
   );
 }
 
-function getAvailableTees() {
-  fetch('https://golf-courses-api.herokuapp.com/courses/')
+function getAvailableTees(id) {
+  fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
   .then(response => response.json())
   .then(data => {
     console.log(data)
