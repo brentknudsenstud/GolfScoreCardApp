@@ -43,7 +43,7 @@ function getAvailableCourses() {
 }
 
 function getAvailableTees() {
-  fetch('https://golf-courses-api.herokuapp.com/')
+  fetch('https://golf-courses-api.herokuapp.com/courses/')
   .then(response => response.json())
   .then(data => {
     console.log(data)
