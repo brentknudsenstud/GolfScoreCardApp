@@ -42,6 +42,15 @@ function getAvailableCourses() {
   );
 }
 
+function getAvailableTees() {
+  fetch('https://golf-courses-api.herokuapp.com/')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    chooseTee(data);
+  }
+  );
+}
 // create function to update Score
  function updateScore() {
 
