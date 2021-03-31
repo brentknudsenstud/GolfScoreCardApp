@@ -58,11 +58,15 @@ function getAvailableTees() {
 
  // create function to allow up to four players
  function addUpToFourPlayers(){
-
+  let player1 = "";
+  let player2 = "";
+  let player3 = "";
+  let player4 = "";
  }
 
  // create function to enter players names?
  function enterPlayersNames() {
+  let playersnames = "";
 
  }
 
