@@ -1,16 +1,36 @@
-// create function to randomize ids for players and courses
+// create an event Listener for the teeBoxSelect
+// once they choose the teebox it will just populate the holes with yardage
+// save the data from the course API call so you can reference it and don't have to make the call again
+  // how do I do this?
+// it will cycle through instead
+
+
+document.getElementById("course-select").addEventListener("change", function() 
+{
+  let courseId = document.getElementById("course-select").value;
+  getAvailableTees(courseId);
+  console.log('course working');
+})
+
+document.getElementById("tee-box-select").addEventListener("change", function() {
+  let teeBoxId = document.getElementById("tee-box-select").value;
+  populateHoles(teeBoxId);
+  console.log('holes working');
+  
+})
+
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
 }
 
 getAvailableCourses();
 getAvailableTees();
+populateHoles();
 
 //create function to choose from available courses
 function chooseCourse(courses) {
 let courseOptionsHtml = '';
 courses.courses.forEach((course) => {
-console.log('fish');
  courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
 });
 document.getElementById('course-select').innerHTML = courseOptionsHtml;
@@ -20,11 +40,17 @@ document.getElementById('course-select').innerHTML = courseOptionsHtml;
 function chooseTee(teeBoxes) {
 let teeBoxSelectHtml = '';
 teeBoxes.forEach(function (teeBox, index) {
-   teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}, ${
-     teeBox.totalYards
-   } yards</option>`
+   teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}</option>`
 });
 document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
+}
+
+// create function to populate holes
+function chooseHole(holes) {
+  let holesInfoHtml = '';
+  holes.forEach(function () {
+    holesInfoHtml += ``
+  });
 }
 
 // create function to create message after last hole is played
@@ -47,10 +73,19 @@ function getAvailableTees(id) {
   fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
   .then(response => response.json())
   .then(data => {
-    console.log(data)
-    chooseTee(data);
+    console.log(data.data.holes[0].teeBoxes)
+  chooseTee(data.data.holes[0].teeBoxes);
   }
   );
+}
+
+function populateHoles(holes) {
+  fetch(`https://golf-courses-api-herokuapp.com/courses/${holes}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.data.holes[0].teeBoxes.yards)
+
+  })
 }
 // create function to update Score
  function updateScore() {
