@@ -14,6 +14,25 @@ th, td {
     text-align: center;
 }
 
+#headings {
+    background-color: #a0d03e;
+    opacity: 0.4;
+}
+
+#yardage {
+    background-color: #7eaed6;
+    opacity: 0.4;
+}
+
+#par {
+    background-color: #ffb193;
+    opacity: 0.4;
+}
+
+#handicap {
+    background-color: #ffea22;
+    opacity: 0.4;
+}
 
 #titlebar { 
     text-align: center;

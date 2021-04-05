@@ -82,7 +82,7 @@ function populateHoles(teeBox) {
   console.log(courseData.data.holes[0].teeBoxes[teeBox]);
 }
 
-function getParYardageAndHandicapInfo(holes) {
+function getYardageParAndHandicapInfo(holes) {
   for (let i = 0; i < holes.length; i++) {
     document.getElementById(`yards-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].yards;
     document.getElementById(`par-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].par;
@@ -93,20 +93,6 @@ function getParYardageAndHandicapInfo(holes) {
 
 // create function to update Score
 function updateScore() {
-
-}
-
-// create function to allow up to four players
-function addUpToFourPlayers() {
-  let player1 = "";
-  let player2 = "";
-  let player3 = "";
-  let player4 = "";
-}
-
-// create function to enter players names?
-function enterPlayersNames() {
-  let playersnames = "";
 
 }
 
