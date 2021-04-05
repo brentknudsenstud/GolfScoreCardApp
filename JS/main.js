@@ -3,7 +3,7 @@
 // save the data from the course API call so you can reference it and don't have to make the call again
 // how do I do this?
 // it will cycle through instead
-
+let courseData;
 
 document.getElementById("course-select").addEventListener("change", function () {
   let courseId = document.getElementById("course-select").value;
@@ -23,8 +23,7 @@ function getNextId(prefix) {
 }
 
 getAvailableCourses();
-getAvailableTees();
-populateHoles();
+
 
 //create function to choose from available courses
 function chooseCourse(courses) {
@@ -72,29 +71,24 @@ function getAvailableTees(id) {
   fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
     .then(response => response.json())
     .then(data => {
+      courseData = data;
       console.log(data.data.holes[0].teeBoxes)
       chooseTee(data.data.holes[0].teeBoxes);
     }
     );
 }
 
-function populateHoles(holes) {
-  fetch(`https://golf-courses-api.herokuapp.com/courses/${holes}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.data.holes[0].teeBoxes.yards)
-
-    })
+function populateHoles(teeBox) {
+  console.log(courseData.data.holes[0].teeBoxes[teeBox]);
 }
 
-function getParYardageAndHandicapInfo() {
-  for (let h = 0; h < holyHoles.length; h++) {
-    document.getElementById(`par-${h}`).innerText = response.data.holes[i].teeTypes[selectedTeeType].par;}
-  for (let y = 0; y < yards.length; y++) {
-    document.getElementById(`yards-${y}`).innerText = response.data.holes.teeTypes[selectedTeeType].par.yardage[y];}
-  for(let c = 0; c < handicap.length; c++) {
-    document.getElementById(`handicap-${c}`)  .innerText = response.data.holes.teeTypes[selectedTeeType].par.handicap[c];}
+function getParYardageAndHandicapInfo(holes) {
+  for (let i = 0; i < holes.length; i++) {
+    document.getElementById(`par-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].par;
+    document.getElementById(`yards-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].yards;
+    document.getElementById(`handicap-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].hcp;
   }
+}
 
 
 // create function to update Score
