@@ -1,22 +1,21 @@
 // create an event Listener for the teeBoxSelect
 // once they choose the teebox it will just populate the holes with yardage
 // save the data from the course API call so you can reference it and don't have to make the call again
-  // how do I do this?
+// how do I do this?
 // it will cycle through instead
 
 
-document.getElementById("course-select").addEventListener("change", function() 
-{
+document.getElementById("course-select").addEventListener("change", function () {
   let courseId = document.getElementById("course-select").value;
   getAvailableTees(courseId);
   console.log('course working');
 })
 
-document.getElementById("tee-box-select").addEventListener("change", function() {
+document.getElementById("tee-box-select").addEventListener("change", function () {
   let teeBoxId = document.getElementById("tee-box-select").value;
   populateHoles(teeBoxId);
   console.log('holes working');
-  
+
 })
 
 function getNextId(prefix) {
@@ -29,20 +28,20 @@ populateHoles();
 
 //create function to choose from available courses
 function chooseCourse(courses) {
-let courseOptionsHtml = '';
-courses.courses.forEach((course) => {
- courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
-});
-document.getElementById('course-select').innerHTML = courseOptionsHtml;
+  let courseOptionsHtml = '';
+  courses.courses.forEach((course) => {
+    courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
+  });
+  document.getElementById('course-select').innerHTML = courseOptionsHtml;
 }
 
 // create function to choose tee box
 function chooseTee(teeBoxes) {
-let teeBoxSelectHtml = '';
-teeBoxes.forEach(function (teeBox, index) {
-   teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}</option>`
-});
-document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
+  let teeBoxSelectHtml = '';
+  teeBoxes.forEach(function (teeBox, index) {
+    teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}</option>`
+  });
+  document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
 }
 
 // create function to populate holes
@@ -55,60 +54,71 @@ function chooseHole(holes) {
 
 // create function to create message after last hole is played
 function playerMessage() {
-toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
-toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
+  toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
 }
 
 function getAvailableCourses() {
   fetch('https://golf-courses-api.herokuapp.com/courses/')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    chooseCourse(data);
-  }
-  );
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      chooseCourse(data);
+    }
+    );
 }
 
 function getAvailableTees(id) {
   fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.data.holes[0].teeBoxes)
-  chooseTee(data.data.holes[0].teeBoxes);
-  }
-  );
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.data.holes[0].teeBoxes)
+      chooseTee(data.data.holes[0].teeBoxes);
+    }
+    );
 }
 
 function populateHoles(holes) {
-  fetch(`https://golf-courses-api-herokuapp.com/courses/${holes}`)
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.data.holes[0].teeBoxes.yards)
+  fetch(`https://golf-courses-api.herokuapp.com/courses/${holes}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.data.holes[0].teeBoxes.yards)
 
-  })
+    })
 }
+
+function getParYardageAndHandicapInfo() {
+  for (let h = 0; h < holyHoles.length; h++) {
+    document.getElementById(`par-${h}`).innerText = response.data.holes[i].teeTypes[selectedTeeType].par;}
+  for (let y = 0; y < yards.length; y++) {
+    document.getElementById(`yards-${y}`).innerText = response.data.holes.teeTypes[selectedTeeType].par.yardage[y];}
+  for(let c = 0; c < handicap.length; c++) {
+    document.getElementById(`handicap-${c}`)  .innerText = response.data.holes.teeTypes[selectedTeeType].par.handicap[c];}
+  }
+
+
 // create function to update Score
- function updateScore() {
+function updateScore() {
 
- }
+}
 
- // create function to allow up to four players
- function addUpToFourPlayers(){
+// create function to allow up to four players
+function addUpToFourPlayers() {
   let player1 = "";
   let player2 = "";
   let player3 = "";
   let player4 = "";
- }
+}
 
- // create function to enter players names?
- function enterPlayersNames() {
+// create function to enter players names?
+function enterPlayersNames() {
   let playersnames = "";
 
- }
+}
 
- // Be aware that when a player gets to the last score before totaling, they could have started at any hole.
- // create function that totals last score before totaling regardless of what hole they started on. Be aware that when a player gets to the last score before totaling, they could have started at any hole.
+// Be aware that when a player gets to the last score before totaling, they could have started at any hole.
+// create function that totals last score before totaling regardless of what hole they started on. Be aware that when a player gets to the last score before totaling, they could have started at any hole.
 
- function holeTotal() {
+function holeTotal() {
 
- }
+}
