@@ -84,9 +84,9 @@ function populateHoles(teeBox) {
 
 function getParYardageAndHandicapInfo(holes) {
   for (let i = 0; i < holes.length; i++) {
-    document.getElementById(`par-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].par;
     document.getElementById(`yards-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].yards;
-    document.getElementById(`handicap-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].hcp;
+    document.getElementById(`par-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].par;
+    document.getElementById(`hcp-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].hcp;
   }
 }
 
