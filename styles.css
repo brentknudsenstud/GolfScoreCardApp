@@ -3,6 +3,7 @@ html, body {
     padding: 10px;
     background: url("images/sand-hollow-course.jpeg") no-repeat center center fixed;
     font-family: 'Archivo Narrow', sans-serif;
+    color: #a9643b;
 }
 
 table {
@@ -16,22 +17,27 @@ th, td {
 
 #headings {
     background-color: #a0d03e;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 #yardage {
     background-color: #7eaed6;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 #par {
     background-color: #ffb193;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 #handicap {
     background-color: #ffea22;
-    opacity: 0.4;
+    opacity: 0.7;
+}
+
+#player2, #player4 {
+    background-color: #efefef;
+    opacity: 0.9;
 }
 
 #titlebar { 
@@ -49,4 +55,9 @@ label {
     background-color: white;
     opacity: 0.9;
     padding: 10px 5px;
+}
+
+input {
+    border: none;
+    text-align: center;
 }

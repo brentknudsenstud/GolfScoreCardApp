@@ -102,3 +102,6 @@ function updateScore() {
 function holeTotal() {
 
 }
+
+// create code to convert strings into a number before tallying the score for out, in, and total
+document.getElementsByTagName("input").parseInt();
