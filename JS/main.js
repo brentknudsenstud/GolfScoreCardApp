@@ -15,6 +15,7 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
   let teeBoxId = document.getElementById("tee-box-select").value;
   populateHoles(teeBoxId);
   console.log('holes working');
+  getYardageParAndHandicapInfo(courseData.holes, teeBoxId);
 
 })
 
@@ -71,7 +72,7 @@ function getAvailableTees(id) {
   fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
     .then(response => response.json())
     .then(data => {
-      courseData = data;
+      courseData = data.data;
       console.log(data.data.holes[0].teeBoxes)
       chooseTee(data.data.holes[0].teeBoxes);
     }
@@ -79,14 +80,14 @@ function getAvailableTees(id) {
 }
 
 function populateHoles(teeBox) {
-  console.log(courseData.data.holes[0].teeBoxes[teeBox]);
+  console.log(courseData.holes[0].teeBoxes[teeBox]);
 }
 
-function getYardageParAndHandicapInfo(holes) {
+function getYardageParAndHandicapInfo(holes, selectedTeeType) {
   for (let i = 0; i < holes.length; i++) {
-    document.getElementById(`yards-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].yards;
-    document.getElementById(`par-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].par;
-    document.getElementById(`hcp-${i}`).innerText = response.data.holes[i].teeType[selectedTeeType].hcp;
+    document.getElementById(`yards-${i + 1}`).innerText = holes[i].teeBoxes[selectedTeeType].yards;
+    document.getElementById(`par-${i + 1}`).innerText = holes[i].teeBoxes[selectedTeeType].par;
+    document.getElementById(`hcp-${i + 1}`).innerText = holes[i].teeBoxes[selectedTeeType].hcp;
   }
 }
 
@@ -100,8 +101,9 @@ function updateScore() {
 // create function that totals last score before totaling regardless of what hole they started on. Be aware that when a player gets to the last score before totaling, they could have started at any hole.
 
 function holeTotal() {
-
+holeTotal();
 }
 
+
 // create code to convert strings into a number before tallying the score for out, in, and total
-document.getElementsByTagName("input").parseInt();
+// getElementsByTagName("tagnamehere").innerText
