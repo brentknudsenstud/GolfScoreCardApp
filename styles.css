@@ -37,7 +37,11 @@ th, td {
 
 #player2, #player4 {
     background-color: #efefef;
-    opacity: 0.9;
+    opacity: 0.5;
+}
+
+#player1, #player3 {
+    background-color: #efefef;
 }
 
 #titlebar { 
