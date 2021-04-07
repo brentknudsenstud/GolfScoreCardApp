@@ -16,6 +16,8 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
   populateHoles(teeBoxId);
   console.log('holes working');
   getYardageParAndHandicapInfo(courseData.holes, teeBoxId);
+  tallyYardageAndParTotals(tally);
+
 
 })
 
@@ -106,6 +108,7 @@ function tallyYardageAndParTotals(tally) {
     getElementById("yards-out").innerText = outyards;
     getElementById("yards-in").innerText = inyards;
   }
+  console.log("Yardage and Par Totals working");
 }
 
 
