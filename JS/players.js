@@ -3,6 +3,17 @@ document.getElementById("player1name").addEventListener("input", function () {
   validateName();
 })
 
+document.getElementById("player2name").addEventListener("input", function () {
+  validateName();
+})
+
+document.getElementById("player3name").addEventListener("input", function () {
+  validateName();
+})
+
+document.getElementById("player4name").addEventListener("input", function () {
+  validateName();
+})
 
 class Player {
     constructor(name, id = getNextId(prefix), scores = []) {
@@ -24,9 +35,13 @@ function validateName() {
   let b = document.getElementById("player2name").value;
   let c = document.getElementById("player3name").value;
   let d = document.getElementById("player4name").value;
-  let x = 5;
-  let names = [1, 2, 3, 4];
-  let contains = names.indexOf(x)
+  let names = [a, b, c, d];
+  let contains = names.indexOf(-1);
+  if (contains == names) {
+    alert("Name already in use. Choose a unique name.");
+  } else {
+    alert("I like your name.");
+  }
 //   switch(a, b, c, d) {
 //     case (b == a):
 //     alert("Choose a different name.")
@@ -42,7 +57,6 @@ function validateName() {
 //   }
 }
 
-validateName();
 
 
   //create function to validate that only numbers can be entered for a score
