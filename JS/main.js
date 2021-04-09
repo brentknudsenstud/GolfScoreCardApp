@@ -16,7 +16,7 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
   populateHoles(teeBoxId);
   console.log('holes working');
   getYardageParAndHandicapInfo(courseData.holes, teeBoxId);
-  tallyYardageAndParTotals(tally);
+  // tallyYardageAndParTotals(tally);
 
 
 })
@@ -93,23 +93,23 @@ function getYardageParAndHandicapInfo(holes, selectedTeeType) {
   }
 }
 
-let outyards = 0;
-let inyards = 0;
-function tallyYardageAndParTotals(tally) {
-  for(let i = 0; i < tally.length; i++) {
-    if (i < 9) {
-      outyards += holes[i].teeBoxes[selectedTeeType].yards;
-    }
-    for(let j = 0; j < tally.length; j++) {
-      if (j > 8) {
-        inyards += holes[i].teeBoxes[selectedTeeType].par;
-      }
-    }
-    getElementById("yards-out").innerText = outyards;
-    getElementById("yards-in").innerText = inyards;
-  }
-  console.log("Yardage and Par Totals working");
-}
+// let outyards = 0;
+// let inyards = 0;
+// function tallyYardageAndParTotals(tally) {
+//   for(let i = 0; i < tally.length; i++) {
+//     if (i < 9) {
+//       outyards += holes[i].teeBoxes[selectedTeeType].yards;
+//     }
+//     for(let j = 0; j < tally.length; j++) {
+//       if (j > 8) {
+//         inyards += holes[i].teeBoxes[selectedTeeType].par;
+//       }
+//     }
+//     getElementById("yards-out").innerText = outyards;
+//     getElementById("yards-in").innerText = inyards;
+//   }
+//   console.log("Yardage and Par Totals working");
+// }
 
 
 // create function to update Score
