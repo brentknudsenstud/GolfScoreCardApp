@@ -23,13 +23,6 @@ class Player {
     }
   }
 
-  //create function to validate that no two players have the same name
-// function validateName() {
-//   if(document.getElementById("player1name").value == document.getElementById("player2name").value || document.getElementById("player3name").value || document.getElementById("player4name").value) {
-//   alert("Your name must be unique. Try again")
-
-// }
-// }
 function validateName(newPlayersName, inputId) {
   // let a = document.getElementById("player1name").value;
   // let b = document.getElementById("player2name").value;
@@ -53,19 +46,6 @@ function validateName(newPlayersName, inputId) {
     return item.id !== inputId && item.value.toUpperCase() === newPlayersName.toUpperCase();
   }); 
 
-//   switch(a, b, c, d) {
-//     case (b == a):
-//     alert("Choose a different name.")
-//     break;
-//     case (c == a || c == b):
-//     alert("Choose a different name.")
-//     break;
-//     case (d == a || d == b || d == c):
-//     alert("Choose a different name.")
-//     break;
-//     default:
-//     alert("I like your name!")
-//   }
 if (checkPlayersNames.length > 0) {
   alert("Name already in use. Choose a unique name.");
   document.getElementById(inputId).value = "";
@@ -80,11 +60,3 @@ if (checkPlayersNames.length > 0) {
   //create function to validate that only numbers can be entered for a score
 
   //create function that updates the out, in, and total columns when player enters score
- 
-// create function to allow up to four players
-// function addUpToFourPlayers() {
-//   let player1 = "";
-//   let player2 = "";
-//   let player3 = "";
-//   let player4 = "";
-// }

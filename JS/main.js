@@ -16,10 +16,59 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
   populateHoles(teeBoxId);
   console.log('holes working');
   getYardageParAndHandicapInfo(courseData.holes, teeBoxId);
-  // tallyYardageAndParTotals(tally);
+  
+  tallyYardageAndParTotals(courseData.holes, teeBoxId);
 
 
 })
+
+// create function to update Score
+function updateScore() {
+  // if(range = "out") {
+  //   let score = 0;
+  //   let out = document.getElementsByClassName("score9entry");
+  //   for(let i = 0; i < out.length; i++) {
+  //     score += out[i].value;
+  //   }
+  //   document.getElementById("1-out").innerText = score;
+  // }
+  // if(range = "in") {
+  //   let score = 0;
+  //   let inward = document.getElementsByClassName("score18entry");
+  //   for(let i = 0; i < inward.length; i++) {
+  //     score += inward[i].value;
+  //   }
+  //   document.getElementById("1-in").innerText = score;
+  // }
+let playerCount = 4;
+let holeCount = 18;
+    for (let i=1; i<=playerCount; i++){
+        let outScore = 0
+        let inScore = 0
+        for(let j=1; j<=holeCount; j++) {
+            if(j <= 9 ){
+                outScore += parseInt(document.getElementById(`hole-${i}-${j}`).value) ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0;
+            } else {
+                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
+            }
+        }
+        document.getElementById(`${i}-out`).innerText = outScore
+        document.getElementById(`${i}-in`).innerText = inScore
+        document.getElementById(`${i}-total`).innerText = outScore + inScore
+    }
+}
+
+
+let runningTotalOut = document.getElementsByClassName("9scoreentry");
+for (i = 0; i < runningTotalOut.length; i++) {
+  runningTotalOut[i].addEventListener("change", updateScore)
+
+}
+
+let runningTotalIn = document.getElementsByClassName("18scoreentry");
+for (i = 0; i < runningTotalIn.length; i++) {
+  runningTotalIn[i].addEventListener("change", updateScore)
+}
 
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
@@ -93,32 +142,38 @@ function getYardageParAndHandicapInfo(holes, selectedTeeType) {
   }
 }
 
-// let outyards = 0;
-// let inyards = 0;
-// function tallyYardageAndParTotals(tally) {
-//   for(let i = 0; i < tally.length; i++) {
-//     if (i < 9) {
-//       outyards += holes[i].teeBoxes[selectedTeeType].yards;
-//     }
-//     for(let j = 0; j < tally.length; j++) {
-//       if (j > 8) {
-//         inyards += holes[i].teeBoxes[selectedTeeType].par;
-//       }
-//     }
-//     getElementById("yards-out").innerText = outyards;
-//     getElementById("yards-in").innerText = inyards;
-//   }
-//   console.log("Yardage and Par Totals working");
-// }
 
-
-// create function to update Score
-function updateScore() {
-
+function tallyYardageAndParTotals(holes, selectedTeeType) {
+  let outyards = 0;
+  let inyards = 0;
+  let outpar = 0;
+  let inpar = 0;
+  
+  for(let i = 0; i < holes.length; i++) {
+    if (i < 9) {
+      outyards += holes[i].teeBoxes[selectedTeeType].yards;
+      outpar += holes[i].teeBoxes[selectedTeeType].par;
+    }
+    if (i > 8) {
+        inyards += holes[i].teeBoxes[selectedTeeType].yards;
+        inpar += holes[i].teeBoxes[selectedTeeType].par;
+      }
+    
+  }
+    document.getElementById("yards-out").innerText = outyards;
+    document.getElementById("yards-in").innerText = inyards;
+    document.getElementById("par-in").innerText = inpar;
+    document.getElementById("par-out").innerText = outpar;
+    document.getElementById("yards-total").innerText = outyards + inyards;
+    document.getElementById("par-total").innerText = outpar + inpar;
+    console.log("Yardage and Par Totals working");
 }
 
+
+
+
 // Be aware that when a player gets to the last score before totaling, they could have started at any hole.
-// create function that totals last score before totaling regardless of what hole they started on. Be aware that when a player gets to the last score before totaling, they could have started at any hole.
+// create function that totals last score before totaling regardless of what hole they started on.
 
 function holeTotal() {
 holeTotal();
