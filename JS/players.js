@@ -54,9 +54,4 @@ if (checkPlayersNames.length > 0) {
 }
 }
 
-
-
-
   //create function to validate that only numbers can be entered for a score
-
-  //create function that updates the out, in, and total columns when player enters score

@@ -103,12 +103,6 @@ function chooseHole(holes) {
   });
 }
 
-// create function to create message after last hole is played
-function playerMessage() {
-  toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
-  toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
-}
-
 function getAvailableCourses() {
   fetch('https://golf-courses-api.herokuapp.com/courses/')
     .then(response => response.json())
@@ -148,24 +142,34 @@ function tallyYardageAndParTotals(holes, selectedTeeType) {
   let inyards = 0;
   let outpar = 0;
   let inpar = 0;
+  let outhcp = 0;
+  let inhcp = 0;
   
   for(let i = 0; i < holes.length; i++) {
     if (i < 9) {
       outyards += holes[i].teeBoxes[selectedTeeType].yards;
       outpar += holes[i].teeBoxes[selectedTeeType].par;
+      outhcp += holes[i].teeBoxes[selectedTeeType].hcp;
     }
     if (i > 8) {
         inyards += holes[i].teeBoxes[selectedTeeType].yards;
         inpar += holes[i].teeBoxes[selectedTeeType].par;
+        inhcp += holes[i].teeBoxes[selectedTeeType].hcp;
       }
     
   }
     document.getElementById("yards-out").innerText = outyards;
     document.getElementById("yards-in").innerText = inyards;
+    
     document.getElementById("par-in").innerText = inpar;
     document.getElementById("par-out").innerText = outpar;
+
+    document.getElementById("hcp-out").innerText = outhcp;
+    document.getElementById("hcp-in").innerText = inhcp;
+
     document.getElementById("yards-total").innerText = outyards + inyards;
     document.getElementById("par-total").innerText = outpar + inpar;
+    document.getElementById("hcp-total").innerText = outhcp + inhcp;
     console.log("Yardage and Par Totals working");
 }
 
@@ -179,6 +183,10 @@ function holeTotal() {
 holeTotal();
 }
 
-
-// create code to convert strings into a number before tallying the score for out, in, and total
-// getElementsByTagName("tagnamehere").innerText
+// create function to create message after last hole is played
+function playerMessage() {
+  // if ()
+  
+  toastr.success(`${playerName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  toastr.warning(`${playerName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
+}
