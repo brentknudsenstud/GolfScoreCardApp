@@ -49,7 +49,7 @@ let holeCount = 18;
             if(j <= 9 ){
                 outScore += parseInt(document.getElementById(`hole-${i}-${j}`).value) ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0;
             } else {
-                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
+                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parserftInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
             }
         }
         document.getElementById(`${i}-out`).innerText = outScore
