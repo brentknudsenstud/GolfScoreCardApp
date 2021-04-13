@@ -50,7 +50,7 @@ if (checkPlayersNames.length > 0) {
   alert("Name already in use. Choose a unique name.");
   document.getElementById(inputId).value = "";
 } else {
-  alert(`Welcome!`);
+  alert(`Welcome, ${newPlayersName}!`);
 }
 }
 
