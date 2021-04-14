@@ -185,9 +185,16 @@ holeTotal();
 
 // create function to create message after last hole is played
 function playerMessage() {
-  // if (whatever player total is < course par) {
+  // if (player chooses to follow standard par && whatever player total is < standard course par) {
   //  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
   // } else {
+  // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
+  // }
+  // I'll need to display this if player chooses to follow handicap par, too (I think). How do I differentiate that?
+  // Will I need to use a setter and getter for this?
+  // if (player chooses to follow handicap par && whatever player total is < handicap par) {
+  //  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+   // } else {
   // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
   // }
   
