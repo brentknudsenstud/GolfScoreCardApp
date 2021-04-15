@@ -1,8 +1,3 @@
-// create an event Listener for the teeBoxSelect
-// once they choose the teebox it will just populate the holes with yardage
-// save the data from the course API call so you can reference it and don't have to make the call again
-// how do I do this?
-// it will cycle through instead
 let courseData;
 
 document.getElementById("course-select").addEventListener("change", function () {
@@ -19,27 +14,11 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
   
   tallyYardageAndParTotals(courseData.holes, teeBoxId);
 
-
 })
 
-// create function to update Score
+// Function to update Score
 function updateScore() {
-  // if(range = "out") {
-  //   let score = 0;
-  //   let out = document.getElementsByClassName("score9entry");
-  //   for(let i = 0; i < out.length; i++) {
-  //     score += out[i].value;
-  //   }
-  //   document.getElementById("1-out").innerText = score;
-  // }
-  // if(range = "in") {
-  //   let score = 0;
-  //   let inward = document.getElementsByClassName("score18entry");
-  //   for(let i = 0; i < inward.length; i++) {
-  //     score += inward[i].value;
-  //   }
-  //   document.getElementById("1-in").innerText = score;
-  // }
+
 let playerCount = 4;
 let holeCount = 18;
     for (let i=1; i<=playerCount; i++){
@@ -49,7 +28,7 @@ let holeCount = 18;
             if(j <= 9 ){
                 outScore += parseInt(document.getElementById(`hole-${i}-${j}`).value) ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0;
             } else {
-                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parserftInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
+                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
             }
         }
         document.getElementById(`${i}-out`).innerText = outScore
@@ -173,12 +152,6 @@ function tallyYardageAndParTotals(holes, selectedTeeType) {
     console.log("Yardage and Par Totals working");
 }
 
-
-
-
-// Be aware that when a player gets to the last score before totaling, they could have started at any hole.
-// create function that totals last score before totaling regardless of what hole they started on.
-
 function holeTotal() {
 holeTotal();
 }
@@ -186,7 +159,8 @@ holeTotal();
 // create function to create message after last hole is played
 function playerMessage() {
   // if (player chooses to follow standard par && whatever player total is < standard course par) {
-  //  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  if (player)  
+  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
   // } else {
   // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
   // }
@@ -198,6 +172,5 @@ function playerMessage() {
   // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
   // }
   
-  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
   toastr.warning(`${playersName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
 }
