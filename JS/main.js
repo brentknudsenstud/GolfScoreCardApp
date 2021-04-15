@@ -158,19 +158,35 @@ holeTotal();
 
 // create function to create message after last hole is played
 function playerMessage() {
+  let partotal = document.getElementById("par-total");
+  let playeronetotal = document.getElementById("1-total");
+  let playertwototal = document.getElementById("2-total");
+  let playerthreetotal = document.getElementById("3-total");
+  let playerfourtotal = document.getElementById("4-total");
+
   // if (player chooses to follow standard par && whatever player total is < standard course par) {
-  if (player)  
+  if (playeronetotal < partotal) {  
   toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
-  // } else {
-  // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
-  // }
-  // I'll need to display this if player chooses to follow handicap par, too (I think). How do I differentiate that?
-  // Will I need to use a setter and getter for this?
-  // if (player chooses to follow handicap par && whatever player total is < handicap par) {
-  //  toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
-   // } else {
-  // toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
-  // }
+  } else {
+  toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
+  }
+
+  if (playertwototal < partotal) {
+    toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  } else {
+  toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
+  }
+
+  if (playerthreetotal < partotal) {
+    toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  } else {
+  toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
+  }
+
+  if (playerfourtotal < partotal) {
+    toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
+  } else {
+  toastr.warning(`${playersName}, keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.`);
+  }
   
-  toastr.warning(`${playersName}, keep trying to improve.  Hours at a practice facility will dramatically improve your golfing acumen.`);
 }
