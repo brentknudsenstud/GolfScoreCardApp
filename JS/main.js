@@ -164,7 +164,6 @@ function playerMessage() {
   let playerthreetotal = document.getElementById("3-total");
   let playerfourtotal = document.getElementById("4-total");
 
-  // if (player chooses to follow standard par && whatever player total is < standard course par) {
   if (playeronetotal < partotal) {  
   toastr.success(`${playersName}, you're practically at pro-level. Great work! Go on sabbatical. You deserve it!`);
   } else {
