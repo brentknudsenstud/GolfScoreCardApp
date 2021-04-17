@@ -32,20 +32,19 @@ let outScore = 0;
 let inScore = 0;
 let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
 let score = parseInt(document.getElementById(flexibleElementId).value);
-// score = (condition) ? valueIfTrue ; valueIfFalse;
-score = isNaN(outScore) ? score : 0; 
+score = !isNaN(score) ? score : 0; 
     for (let i = 1; i <= holeCount; i++) {
          
             if(i <= 9) {   
-            // outScore += score ? score : 0;
               outScore += score;
             } else {
-                inScore += score ? score : 0;
+                inScore += score;
             }
+
         }
-        document.getElementById(`${i}-out`).innerText = outScore;
-        document.getElementById(`${i}-in`).innerText = inScore;
-        document.getElementById(`${i}-total`).innerText = outScore + inScore;
+        document.getElementById(`${playerNumber}-out`).innerText = outScore;
+        document.getElementById(`${playerNumber}-in`).innerText = inScore;
+        document.getElementById(`${playerNumber}-total`).innerText = outScore + inScore;
     }
 
 
