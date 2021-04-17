@@ -30,10 +30,11 @@ function updateScore(scoreElement) {
 let holeCount = 18;
 let outScore = 0;
 let inScore = 0;
-let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
-let score = parseInt(document.getElementById(flexibleElementId).value);
-score = !isNaN(score) ? score : 0; 
+
     for (let i = 1; i <= holeCount; i++) {
+      let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
+      let score = parseInt(document.getElementById(flexibleElementId).value);
+      score = !isNaN(score) ? score : 0; 
          
             if(i <= 9) {   
               outScore += score;
