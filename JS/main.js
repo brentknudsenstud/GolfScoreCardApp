@@ -45,17 +45,24 @@ let holeCount = 18;
     }
 }
 
+let scoreEntries = document.querySelectorAll('.scoreentry');
 
-let runningTotalOut = document.getElementsByClassName("9scoreentry");
-for (i = 0; i < runningTotalOut.length; i++) {
-  runningTotalOut[i].addEventListener("change", updateScore)
-
+for (let i = 0; i < scoreEntries.length; i++) {
+  scoreEntries[i].addEventListener('change', function(event) {
+    updateScore(event.target);
+  });
 }
 
-let runningTotalIn = document.getElementsByClassName("18scoreentry");
-for (i = 0; i < runningTotalIn.length; i++) {
-  runningTotalIn[i].addEventListener("change", updateScore)
-}
+// let runningTotalOut = document.getElementsByClassName("9scoreentry");
+// for (i = 0; i < runningTotalOut.length; i++) {
+//   runningTotalOut[i].addEventListener("change", updateScore)
+
+// }
+
+// let runningTotalIn = document.getElementsByClassName("18scoreentry");
+// for (i = 0; i < runningTotalIn.length; i++) {
+//   runningTotalIn[i].addEventListener("change", updateScore)
+// }
 
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
