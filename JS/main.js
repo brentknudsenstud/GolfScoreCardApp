@@ -30,16 +30,19 @@ function updateScore(scoreElement) {
 let holeCount = 18;
 let outScore = 0;
 let inScore = 0;
+let parser = parseInt;
     for (let i = 1; i <= holeCount; i++){
       // grab your values here -- 'hole-${playerNumber}-${i} and update your totals  
       
       // for(let j=1; j<=holeCount; j++) {
 
             // if(j <= 9 ){
+
+            let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
             if(i <= 9) {   
-            outScore += parseInt(document.getElementById(`hole-${i}-${j}`).value) ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0;
+            outScore += parser(document.getElementById(flexibleElementId).value) ? parser(document.getElementById(flexibleElementId).value) : 0;
             } else {
-                inScore += parseInt(document.getElementById(`hole-${i}-${j}`).value ? parseInt(document.getElementById(`hole-${i}-${j}`).value) : 0);
+                inScore += parser(document.getElementById(flexibleElementId).value ? parser(document.getElementById(flexibleElementId).value) : 0);
             }
         }
         document.getElementById(`${i}-out`).innerText = outScore
