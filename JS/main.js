@@ -22,10 +22,9 @@ function updateScore(scoreElement) {
   let holeScore = scoreElement.value;
   let holeId = scoreElement.id;
 
-  let splitHolePartOfId = holeId.split('hole');
-  let splitDashPartOfId = splitHolePartOfId[0].split('-');
-  let playerNumber = splitDashPartOfId[0];
-  let holeNumber = splitDashPartOfId[1];
+  let splitId = holeId.split('-');
+  let playerNumber = parseInt(splitId[1]);
+  let holeNumber = parseInt(splitId[2]);
 
 let playerCount = 4;
 let holeCount = 18;
