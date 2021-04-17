@@ -17,7 +17,15 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
 })
 
 // Function to update Score
-function updateScore() {
+function updateScore(scoreElement) {
+
+  let holeScore = scoreElement.value;
+  let holeId = scoreElement.id;
+
+  let splitHolePartOfId = holeId.split('hole');
+  let splitDashPartOfId = splitHolePartOfId[0].split('-');
+  let playerNumber = splitDashPartOfId[0];
+  let holeNumber = splitDashPartOfId[1];
 
 let playerCount = 4;
 let holeCount = 18;
