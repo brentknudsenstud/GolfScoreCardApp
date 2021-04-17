@@ -30,26 +30,24 @@ function updateScore(scoreElement) {
 let holeCount = 18;
 let outScore = 0;
 let inScore = 0;
+let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
 let score = parseInt(document.getElementById(flexibleElementId).value);
-    for (let i = 1; i <= holeCount; i++){
-      // grab your values here -- 'hole-${playerNumber}-${i} and update your totals  
-      
-      // for(let j=1; j<=holeCount; j++) {
-
-            // if(j <= 9 ){
-
-            let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
+// score = (condition) ? valueIfTrue ; valueIfFalse;
+score = isNaN(outScore) ? score : 0; 
+    for (let i = 1; i <= holeCount; i++) {
+         
             if(i <= 9) {   
-            outScore += score ? score : 0;
+            // outScore += score ? score : 0;
+              outScore += score;
             } else {
                 inScore += score ? score : 0;
             }
         }
-        document.getElementById(`${i}-out`).innerText = outScore
-        document.getElementById(`${i}-in`).innerText = inScore
-        document.getElementById(`${i}-total`).innerText = outScore + inScore
+        document.getElementById(`${i}-out`).innerText = outScore;
+        document.getElementById(`${i}-in`).innerText = inScore;
+        document.getElementById(`${i}-total`).innerText = outScore + inScore;
     }
-}
+
 
 let scoreEntries = document.querySelectorAll('.scoreentry');
 
