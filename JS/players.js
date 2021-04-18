@@ -53,5 +53,3 @@ if (checkPlayersNames.length > 0) {
   alert(`Welcome, ${newPlayersName}!`);
 }
 }
-
-  //create function to validate that only numbers can be entered for a score

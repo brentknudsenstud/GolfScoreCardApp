@@ -32,7 +32,7 @@ let outScore = 0;
 let inScore = 0;
 
     for (let i = 1; i <= holeCount; i++) {
-      let flexibleElementId = `hole-${playerNumber}-${holeNumber}`;
+      let flexibleElementId = `hole-${playerNumber}-${i}`;
       let score = parseInt(document.getElementById(flexibleElementId).value);
       score = !isNaN(score) ? score : 0; 
          
@@ -46,7 +46,16 @@ let inScore = 0;
         document.getElementById(`${playerNumber}-out`).innerText = outScore;
         document.getElementById(`${playerNumber}-in`).innerText = inScore;
         document.getElementById(`${playerNumber}-total`).innerText = outScore + inScore;
-    }
+        
+        if (holeCount === 18) {
+          console.log("last hole entered is working");
+          if (document.getElementById(`${playerNumber}-total`).value < document.getElementById("par-total").value ) {
+            toastr.success("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!")
+          } else {
+              toastr.warning('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
+            }
+          };
+        }
 
 
 let scoreEntries = document.querySelectorAll('.scoreentry');
@@ -56,17 +65,6 @@ for (let i = 0; i < scoreEntries.length; i++) {
     updateScore(event.target);
   });
 }
-
-// let runningTotalOut = document.getElementsByClassName("9scoreentry");
-// for (i = 0; i < runningTotalOut.length; i++) {
-//   runningTotalOut[i].addEventListener("change", updateScore)
-
-// }
-
-// let runningTotalIn = document.getElementsByClassName("18scoreentry");
-// for (i = 0; i < runningTotalIn.length; i++) {
-//   runningTotalIn[i].addEventListener("change", updateScore)
-// }
 
 function getNextId(prefix) {
   return prefix + Math.random().toString(36).substr(2, 10);
@@ -168,7 +166,7 @@ function tallyYardageAndParTotals(holes, selectedTeeType) {
     document.getElementById("yards-total").innerText = outyards + inyards;
     document.getElementById("par-total").innerText = outpar + inpar;
     document.getElementById("hcp-total").innerText = outhcp + inhcp;
-    console.log("Yardage and Par Totals working");
+    console.log("Yardage, Par and Handicap Totals working");
 }
 
 function holeTotal() {
