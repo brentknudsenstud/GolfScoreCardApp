@@ -47,12 +47,12 @@ let inScore = 0;
         document.getElementById(`${playerNumber}-in`).innerText = inScore;
         document.getElementById(`${playerNumber}-total`).innerText = outScore + inScore;
         
-        if (holeCount === 18) {
+        if (holeNumber === 18) {
           console.log("last hole entered is working");
-          if (document.getElementById(`${playerNumber}-total`) < document.getElementById("par-total")) {
+          if ((`${playerNumber}-total`) < ("par-total")){
             alert("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!")
-          } else {
-              alert('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
+          } else if((`${playerNumber}-total`) > ("par-total")) {
+            alert('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
             }
           };
         }
