@@ -49,10 +49,10 @@ let inScore = 0;
         
         if (holeCount === 18) {
           console.log("last hole entered is working");
-          if (document.getElementById(`${playerNumber}-total`).value < document.getElementById("par-total").value ) {
-            toastr.success("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!")
+          if (document.getElementById(`${playerNumber}-total`) < document.getElementById("par-total")) {
+            alert("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!")
           } else {
-              toastr.warning('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
+              alert('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
             }
           };
         }
