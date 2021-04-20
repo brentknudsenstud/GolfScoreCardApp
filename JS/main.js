@@ -48,13 +48,6 @@ let partotal = parseInt(document.getElementById("par-total").textContent);
         document.getElementById(`${playerNumber}-in`).innerText = inScore;
         document.getElementById(`${playerNumber}-total`).innerText = outScore + inScore;
         
-        // if (holeNumber === 18) {
-        //   console.log("last hole entered is working");
-        //   if ((`${playerNumber}-total`) < ("par-total")){
-        //     alert("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!")
-        //   } else if((`${playerNumber}-total`) > ("par-total")) {
-        //     alert('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.')
-        //     }
         if (holeNumber === 18) {
           console.log("last hole entered is working");
           if (outScore + inScore < partotal) {
