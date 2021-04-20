@@ -20,16 +20,17 @@ document.getElementById("tee-box-select").addEventListener("change", function ()
 function updateScore(scoreElement) {
 
   let holeScore = scoreElement.value;
+  console.log(holeScore, scoreElement);
   let holeId = scoreElement.id;
 
   let splitId = holeId.split('-');
   let playerNumber = parseInt(splitId[1]);
   let holeNumber = parseInt(splitId[2]);
 
-
 let holeCount = 18;
 let outScore = 0;
 let inScore = 0;
+let partotal = parseInt(document.getElementById("par-total").textContent);
 
     for (let i = 1; i <= holeCount; i++) {
       let flexibleElementId = `hole-${playerNumber}-${i}`;
@@ -56,7 +57,7 @@ let inScore = 0;
         //     }
         if (holeNumber === 18) {
           console.log("last hole entered is working");
-          if ( holeScore < ("par-total")) {
+          if (outScore + inScore < partotal) {
             console.log("first part of if else statement is working");
             alert("Awesome. On to the PGA!"); 
           } else {
