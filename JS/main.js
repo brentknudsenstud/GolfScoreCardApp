@@ -59,9 +59,9 @@ let partotal = parseInt(document.getElementById("par-total").textContent);
           console.log("last hole entered is working");
           if (outScore + inScore < partotal) {
             console.log("first part of if else statement is working");
-            alert("Awesome. On to the PGA!"); 
+            alert("You're practically at pro-level. Great work! Go on sabbatical. You deserve it!"); 
           } else {
-            alert("Not where you want to be, but you'll get better with time.");
+            alert('Keep trying to improve. Hours at a practice facility will dramatically improve your golfing acumen.');
           }
         
           };
