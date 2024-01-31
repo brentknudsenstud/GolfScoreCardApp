@@ -79,7 +79,7 @@ getAvailableCourses();
 //create function to choose from available courses
 function chooseCourse(courses) {
   let courseOptionsHtml = '';
-  courses.courses.forEach((course) => {
+  courses.forEach((course) => {
     courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
   });
   document.getElementById('course-select').innerHTML = courseOptionsHtml;
@@ -103,7 +103,7 @@ function chooseHole(holes) {
 }
 
 function getAvailableCourses() {
-  fetch('https://golf-courses-api.herokuapp.com/courses/')
+  fetch('https://exquisite-pastelito-9d4dd1.netlify.app/golfapi/courses.json/')
     .then(response => response.json())
     .then(data => {
       console.log(data)
@@ -113,12 +113,12 @@ function getAvailableCourses() {
 }
 
 function getAvailableTees(id) {
-  fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
+  fetch(`https://exquisite-pastelito-9d4dd1.netlify.app/golfapi/course${id}.json`)
     .then(response => response.json())
     .then(data => {
-      courseData = data.data;
-      console.log(data.data.holes[0].teeBoxes)
-      chooseTee(data.data.holes[0].teeBoxes);
+      courseData = data;
+      console.log(data.holes[0].teeBoxes)
+      chooseTee(data.holes[0].teeBoxes);
     }
     );
 }
